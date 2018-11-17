@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Krisinformation</string>
+    <string name="http_service_unavailable_503">Tjänst Otillgänglig 503</string>
+    <string name="http_gateway_timeout_504">Gateway gjorde timeout 504</string>
+    <string name="http_forbidden_403">Åtkomst Förbjuden 403</string>
+    <string name="http_bad_request_400">Misslyckad Förfrågan 400</string>
+    <string name="http_internal_server_error_500">Internt Serverfel 500</string>
+    <string name="location_failure">Position ej tillgänglig</string>
+    <string name="nav_menu_feed">Flöde</string>
+    <string name="nav_menu_links">Länkar</string>
+    <string name="nav_menu_messages">Meddelanden</string>
+    <string name="network_failure">Nätverksfel</string>
+    <string name="no_network_available">Nätverk ej tillgängligt</string>
+</resources>

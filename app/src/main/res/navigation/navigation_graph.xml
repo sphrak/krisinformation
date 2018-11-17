@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/navigation_graph"
+            app:startDestination="@id/capMessageFragment">
+
+    <fragment android:id="@+id/feedFragment"
+              android:name="fi.kroon.krisinformation.presentation.FeedFragment"
+              android:label="@string/nav_menu_feed" />
+
+    <fragment android:id="@+id/linkFragment"
+              android:name="fi.kroon.krisinformation.presentation.LinkFragment"
+              android:label="@string/nav_menu_links">
+        <action android:id="@+id/action_linkFragment_to_themeFragment"
+                app:destination="@id/themeFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/capMessageFragment"
+              android:name="fi.kroon.krisinformation.presentation.CapMessageFragment"
+              android:label="@string/nav_menu_messages">
+        <action android:id="@+id/action_capMessageFragment_to_feedFragment"
+                app:destination="@id/feedFragment"/>
+
+        <action android:id="@+id/action_capMessageFragment_to_linkFragment"
+                app:destination="@id/linkFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/themeFragment"
+              android:name="fi.kroon.krisinformation.presentation.ThemeFragment"
+              android:label="ThemeFragment"/>
+</navigation>

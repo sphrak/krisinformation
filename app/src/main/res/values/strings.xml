@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Krisinformation</string>
+
+    // NAVIGATION MENU
+    <string name="nav_menu_feed">Feed</string>
+    <string name="nav_menu_links">Links</string>
+    <string name="nav_menu_messages">Messages</string>
+
+    // MESSAGE TYPES
+    <string name="vma">Viktigt meddelande till allmänheten</string>
+
+    // HTTP STATUS CODES
+    <string name="http_forbidden_403">Access Forbidden 403</string>
+    <string name="http_bad_request_400">Bad Request 400</string>
+    <string name="http_internal_server_error_500">Internal Server Error 500</string>
+    <string name="http_service_unavailable_503">Service Unavailable 503</string>
+    <string name="http_gateway_timeout_504">Gateway timeout 504</string>
+
+    <string name="io_exception" translatable="false">I/O Exception</string>
+    <string name="network_failure">Network Failure</string>
+    <string name="location_failure">Location not available</string>
+    <string name="no_network_available">Network not available</string>
+</resources>
