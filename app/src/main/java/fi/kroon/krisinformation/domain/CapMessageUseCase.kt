@@ -1,6 +1,5 @@
 package fi.kroon.krisinformation.domain
 
-import fi.kroon.krisinformation.common.Schedulers
 import fi.kroon.krisinformation.common.extensions.splitToList
 import fi.kroon.krisinformation.data.SENDER_NAME
 import fi.kroon.krisinformation.data.capmessage.CapMessageRepository
@@ -15,8 +14,7 @@ import javax.inject.Inject
 
 class CapMessageUseCase @Inject constructor(
     private val capMessageRepository: CapMessageRepository,
-    private val filterUseCase: FilterUseCase,
-    private val schedulers: Schedulers
+    private val filterUseCase: FilterUseCase
 ) {
     fun get(forceCacheInvalidation: Boolean = false): Single<Either<Failure, List<CapMessage>>> {
         return capMessageRepository
@@ -25,7 +23,6 @@ class CapMessageUseCase @Inject constructor(
                 it.map {
                     list -> list.map {
                         with(it) {
-
                             infoData.first().senderName?.splitToList()?.map { sender ->
                                 Filter(
                                     name = sender,
@@ -33,40 +30,17 @@ class CapMessageUseCase @Inject constructor(
                                     type = SENDER_NAME
                                 )
                             }?.filter {
-                                // filter out items which does not have a proper name attribute
-                                    filter -> filter.name.isNotEmpty() || filter.name.isNotEmpty()
+                                filter -> filter.name.isNotEmpty() || filter.name.isNotEmpty()
                             }
                         }
                     }
                     .distinct()
                     .map {
-                        it.let {
-                            filterUseCase.insert(it!!)
-                                .subscribeOn(schedulers.io())
-                                .observeOn(schedulers.ui())
-                                // .doOnEvent { t1, t2 -> Timber.d("A: ${t1.map { it.size }}, B: $t2") }
-                                .subscribe(
-                                    { Timber.i("Success: $it") },
-                                    { Timber.e("Failure: $it") }
-                                )
+                        it?.let {
+                            filterUseCase.insert(it)
                         }
                     }
-                    /*.filter {
-                        // filter out items which does not have a proper name attribute
-                        filter -> filter.name.isNotEmpty() || filter.name.isNotEmpty()
-                    }*/
-                    // .distinct()
-                    // .toList()
-                } /*.map {
-                    filterUseCase.insert(it)
-                        .subscribeOn(schedulers.io())
-                        .observeOn(schedulers.ui())
-                        // .doOnEvent { t1, t2 -> Timber.d("A: ${t1.map { it.size }}, B: $t2") }
-                        .subscribe(
-                            { Timber.i("Success: $it") },
-                            { Timber.e("Failure: $it") }
-                        )
-                }*/
+                }
             }.doOnError {
                 Timber.d("$it")
             }
