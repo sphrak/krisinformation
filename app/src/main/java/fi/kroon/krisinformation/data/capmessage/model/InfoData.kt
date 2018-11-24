@@ -31,7 +31,7 @@ data class InfoData(
     val description: String,
 
     @Json(name = "SenderName")
-    val senderName: String?,
+    val senderName: String? = "Okänd",
 
     @Json(name = "Web")
     val web: String,

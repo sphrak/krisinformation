@@ -3,22 +3,24 @@ package fi.kroon.krisinformation.di.modules
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import fi.kroon.krisinformation.common.NetworkHandler
 import fi.kroon.krisinformation.data.BASE_API_URL_V1
 import fi.kroon.krisinformation.data.BASE_API_URL_V2
-import fi.kroon.krisinformation.data.capmessage.net.CapMessageApi
 import fi.kroon.krisinformation.data.capmessage.CapMessageRepository
+import fi.kroon.krisinformation.data.capmessage.net.CapMessageApi
 import fi.kroon.krisinformation.data.features.FeaturesRepository
 import fi.kroon.krisinformation.data.features.net.FeaturesApi
-import fi.kroon.krisinformation.data.feed.net.FeedApi
 import fi.kroon.krisinformation.data.feed.FeedRepository
-import fi.kroon.krisinformation.data.links.net.LinksApi
+import fi.kroon.krisinformation.data.feed.net.FeedApi
+import fi.kroon.krisinformation.data.filter.FilterRepository
+import fi.kroon.krisinformation.data.filter.local.FilterLocalDataSource
 import fi.kroon.krisinformation.data.links.LinksRepository
-import fi.kroon.krisinformation.data.theme.net.ThemeApi
+import fi.kroon.krisinformation.data.links.net.LinksApi
 import fi.kroon.krisinformation.data.theme.ThemeRepository
+import fi.kroon.krisinformation.data.theme.net.ThemeApi
 import fi.kroon.krisinformation.di.component.scope.KrisAppScope
 import fi.kroon.krisinformation.di.qualifiers.V1
 import fi.kroon.krisinformation.di.qualifiers.V2
-import fi.kroon.vadret.utils.NetworkHandler
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -56,6 +58,11 @@ class ApiModule {
         @JvmStatic
         @KrisAppScope
         fun featuresRepository(featuresApi: FeaturesApi, networkHandler: NetworkHandler) = FeaturesRepository(featuresApi, networkHandler)
+
+        @Provides
+        @JvmStatic
+        @KrisAppScope
+        fun filterRepository(filterLocalDataSource: FilterLocalDataSource) = FilterRepository(filterLocalDataSource)
 
         // API V1
         @Provides

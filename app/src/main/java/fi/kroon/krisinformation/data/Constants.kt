@@ -8,3 +8,4 @@ const val HEADER_NO_CACHE = "no-cache"
 const val DATABASE_VERSION = 1
 const val DATABASE_NAME = "krisinformation.db"
 const val FIFTEEN_SEC_IN_MILLIS = 15000
+const val SENDER_NAME = "SenderName"

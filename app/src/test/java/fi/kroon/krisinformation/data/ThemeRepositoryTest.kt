@@ -1,12 +1,12 @@
 package fi.kroon.krisinformation.data
 
 import fi.kroon.krisinformation.BaseUnitTest
+import fi.kroon.krisinformation.common.NetworkHandler
 import fi.kroon.krisinformation.data.exception.Failure
 import fi.kroon.krisinformation.data.functional.Either
 import fi.kroon.krisinformation.data.theme.ThemeRepository
 import fi.kroon.krisinformation.data.theme.model.ThemeResponse
 import fi.kroon.krisinformation.data.theme.net.ThemeApi
-import fi.kroon.vadret.utils.NetworkHandler
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test

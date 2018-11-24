@@ -13,7 +13,7 @@ class ThemeUseCase @Inject constructor(
 ) {
     fun get(forceCacheInvalidation: Boolean = false): Single<Either<Failure, ThemeResponse>> {
         return themeRepository
-            .get()
+            .get(forceCacheInvalidation)
             .doOnError {
                 Timber.d("$it")
             }

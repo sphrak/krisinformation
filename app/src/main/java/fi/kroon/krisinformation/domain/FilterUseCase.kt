@@ -11,4 +11,5 @@ class FilterUseCase @Inject constructor(
     private val filterRepository: FilterRepository
 ) {
     fun get(): Single<Either<Failure, List<Filter>>> = filterRepository.get()
+    fun insert(filterList: List<Filter>) = filterRepository.insert(filterList)
 }

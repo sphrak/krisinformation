@@ -1,7 +1,7 @@
 package fi.kroon.krisinformation.data
 
+import fi.kroon.krisinformation.common.NetworkHandler
 import fi.kroon.krisinformation.di.component.scope.KrisAppScope
-import fi.kroon.vadret.utils.NetworkHandler
 import okhttp3.Interceptor
 import okhttp3.Response
 import timber.log.Timber

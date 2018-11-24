@@ -1,5 +1,6 @@
 package fi.kroon.krisinformation.data.feed
 
+import fi.kroon.krisinformation.common.NetworkHandler
 import fi.kroon.krisinformation.data.HEADER_NO_CACHE
 import fi.kroon.krisinformation.data.exception.Failure
 import fi.kroon.krisinformation.data.feed.model.FeedResponse
@@ -8,7 +9,6 @@ import fi.kroon.krisinformation.data.functional.Either
 import fi.kroon.krisinformation.data.functional.Either.Left
 import fi.kroon.krisinformation.data.functional.Either.Right
 import fi.kroon.krisinformation.di.component.scope.KrisAppScope
-import fi.kroon.vadret.utils.NetworkHandler
 import io.reactivex.Single
 import timber.log.Timber
 import javax.inject.Inject

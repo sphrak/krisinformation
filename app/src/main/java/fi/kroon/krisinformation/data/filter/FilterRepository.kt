@@ -25,4 +25,11 @@ class FilterRepository @Inject constructor(
             }.onErrorReturn {
                 Left(FilterFailure.FilteringFailed())
             }
+
+    fun insert(filterList: List<Filter>): Single<Either<Failure, List<Long>>> =
+        filterLocalDataSource.insert(filterList).map {
+            Either.Right(it) as Either<Failure, List<Long>>
+        }.onErrorReturn {
+            Either.Left(FilterFailure.DatabaseInsertFailed())
+        }
 }

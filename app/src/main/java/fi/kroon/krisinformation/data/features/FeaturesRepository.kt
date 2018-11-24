@@ -1,12 +1,12 @@
 package fi.kroon.krisinformation.data.features
 
+import fi.kroon.krisinformation.common.NetworkHandler
 import fi.kroon.krisinformation.data.HEADER_NO_CACHE
 import fi.kroon.krisinformation.data.exception.Failure
 import fi.kroon.krisinformation.data.features.model.Features
 import fi.kroon.krisinformation.data.features.net.FeaturesApi
 import fi.kroon.krisinformation.data.functional.Either
 import fi.kroon.krisinformation.di.component.scope.KrisAppScope
-import fi.kroon.vadret.utils.NetworkHandler
 import io.reactivex.Single
 import timber.log.Timber
 import javax.inject.Inject

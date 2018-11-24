@@ -12,7 +12,7 @@ class FeedUseCase @Inject constructor(
     private val feedRepository: FeedRepository
 ) {
     fun get(forceCacheInvalidation: Boolean = false): Single<Either<Failure, FeedResponse>> = feedRepository
-        .get()
+        .get(forceCacheInvalidation)
         .doOnError {
             Timber.d("$it")
         }

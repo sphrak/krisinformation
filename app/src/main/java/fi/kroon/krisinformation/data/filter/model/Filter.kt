@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
             value = [
                 "name",
                 "display_name",
-                "category"
+                "type"
             ],
             unique = true
         )
@@ -22,17 +22,34 @@ data class Filter(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int,
+    val id: Long? = null,
 
+    /**
+     *  This is the name for a
+     *  SenderName, or say Category name
+     */
     @ColumnInfo(name = "name")
     val name: String,
 
+    /**
+     * Same as name, but with properly
+     * formatted text, like Capitalized etc.
+     */
     @ColumnInfo(name = "display_name")
     val displayName: String,
 
-    @ColumnInfo(name = "category")
-    val category: String,
+    /**
+     *  Example:
+     *  => Sender/Utgivare,
+     *  => MsgType/Meddelandetyp
+     */
+    @ColumnInfo(name = "type")
+    val type: String,
 
+    /**
+     * Indicating if its currently being
+     * used for filtering.
+     */
     @ColumnInfo(name = "is_selected")
     val isSelected: Boolean = false
 

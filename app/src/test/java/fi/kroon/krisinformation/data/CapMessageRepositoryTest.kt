@@ -1,12 +1,12 @@
 package fi.kroon.krisinformation.data
 
 import fi.kroon.krisinformation.BaseUnitTest
+import fi.kroon.krisinformation.common.NetworkHandler
 import fi.kroon.krisinformation.data.capmessage.CapMessageRepository
 import fi.kroon.krisinformation.data.capmessage.model.CapMessage
 import fi.kroon.krisinformation.data.capmessage.net.CapMessageApi
 import fi.kroon.krisinformation.data.exception.Failure
 import fi.kroon.krisinformation.data.functional.Either
-import fi.kroon.vadret.utils.NetworkHandler
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test

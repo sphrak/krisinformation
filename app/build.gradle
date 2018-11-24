@@ -52,9 +52,19 @@ android {
         dataBinding {
             enabled = true
         }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
         androidExtensions {
             experimental = true
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     signingConfigs {
         release {
@@ -129,8 +139,9 @@ configurations {
 
 dependencies {
 
+    // use stable room
     def ROOM_VERSION = "2.1.0-alpha02"
-    def RXJAVA_VERSION = "2.2.3"
+    def RXJAVA_VERSION = "2.2.4"
     def DAGGER_VERSION = "2.19"
     def RETROFIT_VERSION = "2.5.0"
     def MOSHI_VERSION = "1.8.0"
@@ -161,7 +172,7 @@ dependencies {
     googleImplementation("com.crashlytics.sdk.android:crashlytics:${CRASHLYTICS_VERSION}@aar") { transitive = true }
 
     // Picasso
-    // implementation "com.squareup.picasso:picasso:${PICASSO_VERSION}"
+    implementation "com.squareup.picasso:picasso:${PICASSO_VERSION}"
 
     // OSMDroid
     implementation "org.osmdroid:osmdroid-android:${OSMDROID_VERSION}"
@@ -205,7 +216,7 @@ dependencies {
     implementation "androidx.preference:preference:${KTX_VERSION}"
 
     // Mockito framework
-    testImplementation 'org.mockito:mockito-core:2.23.0'
+    testImplementation 'org.mockito:mockito-core:2.23.4'
 
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha2"
 

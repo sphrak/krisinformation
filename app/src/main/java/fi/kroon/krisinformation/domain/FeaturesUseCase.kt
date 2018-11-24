@@ -12,7 +12,7 @@ class FeaturesUseCase @Inject constructor(
     private val featuresRepository: FeaturesRepository
 ) {
     fun get(forceCacheInvalidation: Boolean = false): Single<Either<Failure, Features>> = featuresRepository
-        .get()
+        .get(forceCacheInvalidation)
         .doOnError {
             Timber.d("$it")
         }

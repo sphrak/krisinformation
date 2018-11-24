@@ -1,4 +1,4 @@
-package fi.kroon.vadret.util
+package fi.kroon.krisinformation.util
 
 import androidx.annotation.NonNull
 import io.reactivex.Scheduler

@@ -9,4 +9,5 @@ class Schedulers {
     fun io(): Scheduler = Schedulers.io()
     fun ui(): Scheduler = AndroidSchedulers.mainThread()
     fun computation(): Scheduler = Schedulers.computation()
+    fun trampoline(): Scheduler = Schedulers.trampoline()
 }

@@ -13,7 +13,7 @@ class LinksUseCase @Inject constructor(
 ) {
     fun get(forceCacheInvalidation: Boolean = false): Single<Either<Failure, Links>> {
         return linksRepository
-            .get()
+            .get(forceCacheInvalidation)
             .doOnError {
                 Timber.d("$it")
             }

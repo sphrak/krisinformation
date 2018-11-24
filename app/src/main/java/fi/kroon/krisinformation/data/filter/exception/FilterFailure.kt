@@ -5,4 +5,5 @@ import fi.kroon.krisinformation.data.exception.Failure
 class FilterFailure {
 
     class FilteringFailed : Failure.FeatureFailure()
+    class DatabaseInsertFailed : Failure.FeatureFailure()
 }
