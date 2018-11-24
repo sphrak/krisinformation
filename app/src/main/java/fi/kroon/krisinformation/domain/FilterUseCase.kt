@@ -15,11 +15,7 @@ class FilterUseCase @Inject constructor(
 ) {
     fun get(): Single<Either<Failure, List<Filter>>> = filterRepository.get()
 
-    fun insert(filterList: List<Filter>) = filterRepository.insert(filterList)
-        .subscribeOn(schedulers.io())
-        .observeOn(schedulers.ui())
-        .subscribe(
-            { Timber.i("Success: $it") },
-            { Timber.e("Failure: $it") }
-        )
+    fun insert(filterList: List<Filter>): Single<Either<Failure, List<Long>>> =
+        filterRepository.insert(filterList)
+
 }
