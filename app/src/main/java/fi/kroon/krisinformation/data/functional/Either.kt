@@ -11,7 +11,7 @@ sealed class Either<out L, out R> {
     fun <L> left(a: L) = Left(a)
     fun <R> right(b: R) = Right(b)
 
-    fun <T> either(fnL: (L) -> T, fnR: (R) -> T): T =
+    fun either(fnL: (L) -> Any, fnR: (R) -> Any): Any =
             when (this) {
                 is Left -> fnL(a)
                 is Right -> fnR(b)
@@ -31,4 +31,3 @@ fun <T, L, R> Either<L, R>.flatMap(fn: (R) -> Either<L, T>): Either<L, T> =
     }
 
 fun <T, L, R> Either<L, R>.map(fn: (R) -> (T)): Either<L, T> = this.flatMap(fn.c(::right))
-
